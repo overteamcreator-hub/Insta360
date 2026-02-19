@@ -1239,34 +1239,34 @@ footer {
       <div id="form-wrapper" class="reveal">
         <div class="form-box">
           <div class="form-title">Start Mapping Today</div>
-          <form id="application-form">
+          <form id="application-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe9TtNC5QNG33xAP1yPFdM9fcLGVFkkJ6P33kCdVGcRVMy5iA/formResponse" method="POST" target="_blank">
             <div class="field">
               <label for="name">Full Name</label>
-              <input type="text" id="name" placeholder="Jane Doe" required>
+              <input type="text" id="name" name="entry.1281991717" placeholder="Jane Doe" required>
             </div>
             <div class="field">
               <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="jane@example.com" required>
+              <input type="email" id="email" name="entry.545580737" placeholder="jane@example.com" required>
             </div>
             <div class="field">
               <label for="location">City & Country</label>
-              <input type="text" id="location" placeholder="New York, USA" required>
+              <input type="text" id="location" name="entry.1473890182" placeholder="New York, USA" required>
             </div>
             <div class="check-row">
-              <input type="checkbox" id="hasCamera" required>
+              <input type="checkbox" id="hasCamera" name="entry.447327408" value="Yes" required>
               <label for="hasCamera">I confirm I own an Insta360 X5 Camera</label>
             </div>
             <div class="field">
               <label for="discord">Discord or Telegram username</label>
-              <input type="text" id="discord" name="discord" placeholder="@username" required>
+              <input type="text" id="discord" name="entry.1171027882" placeholder="@username" required>
             </div>
             <div class="field">
               <label>How much time can you dedicate to mapping per day?</label>
               <div class="radio-group" id="mapping-group">
-                <label class="radio-option"><input type="radio" name="mapping_time" value="1h"><span class="radio-circle"></span><span>1h / day</span></label>
-                <label class="radio-option"><input type="radio" name="mapping_time" value="2-4h"><span class="radio-circle"></span><span>2–4h / day</span></label>
-                <label class="radio-option"><input type="radio" name="mapping_time" value="4-6h"><span class="radio-circle"></span><span>4–6h / day</span></label>
-                <label class="radio-option"><input type="radio" name="mapping_time" value="8h"><span class="radio-circle"></span><span>8h / day</span></label>
+                <label class="radio-option"><input type="radio" name="entry.1953577631" value="1h day"><span class="radio-circle"></span><span>1h / day</span></label>
+                <label class="radio-option"><input type="radio" name="entry.1953577631" value="2-4h day"><span class="radio-circle"></span><span>2–4h / day</span></label>
+                <label class="radio-option"><input type="radio" name="entry.1953577631" value="4-6h day"><span class="radio-circle"></span><span>4–6h / day</span></label>
+                <label class="radio-option"><input type="radio" name="entry.1953577631" value="8h day"><span class="radio-circle"></span><span>8h / day</span></label>
               </div>
             </div>
             <button type="submit" class="btn-submit" id="submit-btn">Submit Application</button>
@@ -1330,27 +1330,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ── Form ──
-  var form      = document.getElementById('application-form');
-  var submitBtn = document.getElementById('submit-btn');
-  var wrapper   = document.getElementById('form-wrapper');
-
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    setTimeout(function() {
-      wrapper.innerHTML = '<div class="success-box">'
-        + '<div class="success-icon">'
-        + '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
-        + '</div>'
-        + '<h3>Application Received!</h3>'
-        + '<p>Thank you for applying to join the OVER mapping network.<br>Our team will review your application and reach out to you soon.</p>'
-        + '</div>';
-    }, 1200);
-  });
+  // ── Form ── (submit handled by Google Forms)
+  // Form now submits directly to Google Forms with action attribute
 
   // ── Reveal on scroll ──
   var io = new IntersectionObserver(function(entries) {
